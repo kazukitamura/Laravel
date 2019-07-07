@@ -18,8 +18,6 @@ class ProfileController extends Controller
   {
       return redirect('admin/profile/create');
   }
-  
-  
 
   public function edit()
   {
