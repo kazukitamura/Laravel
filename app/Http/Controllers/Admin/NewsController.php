@@ -22,7 +22,9 @@ class NewsController extends Controller
   {
       return view('admin.news.create');
   }
-
+//hoge(Request $request)はLaravelに既存で搭載されているサービスプロバイダという
+//機能を使って自動でインスタンス化を行う。Requestはブラウザを通して送られてくる
+//ユーザー情報をすべて含んでいる。
   public function create(Request $request)
   {     
    
@@ -59,13 +61,21 @@ class NewsController extends Controller
   {
       $cond_title = $request->cond_title;
       if ($cond_title != '') {
-          // 検索されたら検索結果を取得する
+          // もしcond_titleが空欄でない場合は、検索された結果を取得する
+          //$cond_titleはブラウザからの情報で、name="cond_title"にてinput要素の名前を指定する。
+          //index.blade.phpのinputタグ、name属性にて使用。
+          //whereはデータベース検索の条件。MySQLとPosgreとかの差をなくすため（データベース間の文法差異）に抽象化している。
+          //->get()でデータの中身を取得。
           $posts = News::where('title', $cond_title)->get();
       } else {
           // それ以外はすべてのニュースを取得する
           //条件を一切つけずに全てのデータを取得するには、all()メソッドを使います。
           $posts = News::all();
       }
+      //viewヘルパに渡している最初の引数は、resources/viewsディレクトリー中の
+      //ビューファイル名(index.blade.php)に対応しています。
+      //２つ目の引数は、ビューで使用するデータの配列です。下記の例では、
+      //ビューにposts,cond_title変数を渡し、それはBlade記法を使用しているビューの中に表示されます。
       return view('admin.news.index', ['posts' => $posts, 'cond_title' => $cond_title]);
   }
 
@@ -74,7 +84,7 @@ class NewsController extends Controller
   public function edit(Request $request)
   {
       // News Modelからデータを取得する
-      $news = News::find($request->id);
+      $news = News::find($request->id); //admin/news/edit?id=1が入ってくる。
       if (empty($news)) {
         abort(404);    
       }

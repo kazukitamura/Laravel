@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+//Migrationもクラスである。クラス、オブジェクト（インスタンス）を使って、DBを操作する。
 class CreateNewsTable extends Migration
 {
     /**
@@ -13,6 +14,7 @@ class CreateNewsTable extends Migration
      */
     public function up()
     {
+        //設計図を作成。コールバックにて列を定義。
         Schema::create('news', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title'); // ニュースのタイトルを保存するカラム

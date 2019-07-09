@@ -38,7 +38,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($posts as $news)
+                            {{-- $postsはコントローラーに定義されている。 --}}
+                            @foreach($posts as $news)    
                                 <tr>
                                     <th>{{ $news->id }}</th>
                                     <td>{{ str_limit($news->title, 100) }}</td>
