@@ -22,7 +22,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
      Route::post('profile/create', 'Admin\ProfileController@create');
      Route::get('profile/edit', 'Admin\ProfileController@edit');
      Route::post('profile/edit', 'Admin\ProfileController@update');
+     Route::get('profile/delete', 'Admin\ProfileController@delete')->middleware('auth');
      Route::get('news', 'Admin\NewsController@index')->middleware('auth'); // 追記
+     Route::get('profile', 'Admin\ProfileController@index')->middleware('auth'); // 追記
      Route::get('news/edit', 'Admin\NewsController@edit')->middleware('auth'); // 追記
      Route::post('news/edit', 'Admin\NewsController@update')->middleware('auth'); // 追記
      Route::get('news/delete', 'Admin\NewsController@delete')->middleware('auth');

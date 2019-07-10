@@ -100,6 +100,7 @@ class NewsController extends Controller
       // Validationをかける
       $this->validate($request, News::$rules);
       // News Modelからデータを取得する
+      //findメソッドは主キーで指定したレコードを一つだけ取得する場合に使います。
       $news = News::find($request->id);
       // 送信されてきたフォームデータを格納する
       $news_form = $request->all();
@@ -118,6 +119,8 @@ class NewsController extends Controller
         // 以下を追記
         //News Modelを保存するタイミングで、同時に History Modelにも編集履歴を追加するよう実装
         $history = new History;
+        //index.bladeのニュース一覧から選択されたnewstableのidを
+        //hisroty tableのnew_idへと代入
         $history->news_id = $news->id;
         $history->edited_at = Carbon::now();
         $history->save();
