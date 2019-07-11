@@ -53,8 +53,9 @@ class ProfileController extends Controller
           //$cond_titleはブラウザからの情報で、name="cond_title"にてinput要素の名前を指定する。
           //index.blade.phpのinputタグ、name属性にて使用。
           //whereはデータベース検索の条件。MySQLとPosgreとかの差をなくすため（データベース間の文法差異）に抽象化している。
+          //第１引数はカラム名、第2引数は検索する値
           //->get()でデータの中身を取得。
-          $posts = Profiles::where('title', $cond_title)->get();
+          $posts = Profiles::where('name', $cond_title)->get();
       } else {
           // それ以外はすべてのニュースを取得する
           //条件を一切つけずに全てのデータを取得するには、all()メソッドを使います。
@@ -70,7 +71,7 @@ class ProfileController extends Controller
   public function edit(Request $request)
   {
       // Profiles Modelからデータを取得する
-      $profiles = new Profiles;
+      $profiles = Profiles::orderBy('created_at', 'desc')->first(); 
       //if (empty($profiles)) {
         //abort(404);    
       //}

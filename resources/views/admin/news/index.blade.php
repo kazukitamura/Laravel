@@ -11,10 +11,12 @@
                 <a href="{{ action('Admin\NewsController@add') }}" role="button" class="btn btn-primary">新規作成</a>
             </div>
             <div class="col-md-8">
+                {{-- 検索したいタイトルを入力する箇所。入力後にindexアクションに値が渡され、whereを使ってtitle列にて検索される --}}
                 <form action="{{ action('Admin\NewsController@index') }}" method="get">
                     <div class="form-group row">
                         <label class="col-md-2">タイトル</label>
                         <div class="col-md-8">
+                             {{-- value属性で初期値を用意することができます。フォームの入力を簡単にするために、可能なところに初期値を用意する。 --}}
                             <input type="text" class="form-control" name="cond_title" value={{ $cond_title }}>
                         </div>
                         <div class="col-md-2">
