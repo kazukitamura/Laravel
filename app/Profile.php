@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Profiles extends Model
+class Profile extends Model
 {
     protected $guarded = array('id');
     // 以下を追記
@@ -12,13 +12,14 @@ class Profiles extends Model
         'name' => 'required',
         'gender' => 'required',
         'hobby' => 'required',
+        'introduction' => 'required',
     );
     
     // 以下を追記
-    // Profilesモデルに関連付けを行う
-    public function histories()
+    // Profileモデルに関連付けを行う
+    public function profilehistories()
     {
-      return $this->hasMany('App\Profiles_History');
+      return $this->hasMany('App\Profilehistory');
 
     }
 }
