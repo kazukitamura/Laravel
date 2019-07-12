@@ -28,7 +28,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
      Route::get('news/edit', 'Admin\NewsController@edit')->middleware('auth'); // 追記
      Route::post('news/edit', 'Admin\NewsController@update')->middleware('auth'); // 追記
      Route::get('news/delete', 'Admin\NewsController@delete')->middleware('auth');
+     
 });
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'NewsController@index');

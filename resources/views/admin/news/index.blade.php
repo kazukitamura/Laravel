@@ -21,6 +21,7 @@
                         </div>
                         <div class="col-md-2">
                             {{ csrf_field() }}
+                            {{-- input type="submit" value="送信"を使用すると送信ボタンを作成することができます。送信ボタンは、入力フォームに入力した内容をサーバーに送信するボタンです。 --}}
                             <input type="submit" class="btn btn-primary" value="検索">
                         </div>
                     </div>
