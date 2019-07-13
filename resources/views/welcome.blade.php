@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    ド素人が作ったブログサイト
                 </div>
 
                 <div class="links">

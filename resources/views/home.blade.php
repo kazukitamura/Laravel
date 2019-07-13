@@ -15,6 +15,13 @@
                     @endif
 
                     You are logged in!
+                    
+                    <form action="{{ action('Admin\ProfileController@add') }}" method="get" enctype="multipart/form-data">
+                    とりあえずプロフィール適当に作ってみて
+                            <input type="submit" class="btn btn-primary" value="作成">
+                    </form>
+                    
+                    
                 </div>
             </div>
         </div>

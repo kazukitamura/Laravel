@@ -26,7 +26,7 @@ class ProfileController extends Controller
       // Varidationを行う
       $this->validate($request, Profile::$rules);
 
-      $profiles = new Profile;
+      $profile = new Profile;
       $form = $request->all();
       
 
