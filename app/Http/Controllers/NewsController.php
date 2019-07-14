@@ -48,7 +48,7 @@ class NewsController extends Controller
             $headline = null;
         }
 
-        // news/index.blade.php ファイルを渡している
+        // profiles/index.blade.php ファイルを渡している
         // また View テンプレートに headline、 posts、 cond_title という変数を渡している
         return view('profiles.index', ['headline' => $headline, 'posts' => $posts, 'cond_title' => $cond_title]);
     }
