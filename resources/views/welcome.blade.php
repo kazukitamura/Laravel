@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    ド素人が作ったブログサイト
+                    何かブログ作ってみよう
                 </div>
 
                 <div class="links">
